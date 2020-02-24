@@ -12,16 +12,15 @@ result = ("your final text is: ")
 #shifts text by (shift) amount of leters
 def caesar(plaintxt, shift, result):
     if plaintxt.isalpha(): #checking if plaintext contains letters only
-        if shift<=26: #ensuring shift stays within 26
-            for character in plaintxt:
-                plaintext = ord(character)
-                result += chr(plaintext + shift)
-            print(result)
-
-        else:
-            print("program failed") #if shift > 26
-        
-
+        for character in plaintxt:
+            asciiValue = ord(character) + shift
+            print(asciiValue)
+            if asciiValue > 122:
+                print('going back to original')
+                result += chr(asciiValue - 26)
+            else:
+                result += chr(asciiValue)
+        print(result)
     else:
         print("program failed") #if there's not only letters
         time.sleep(1)

@@ -2,20 +2,16 @@
 #this helps with learning tkinter GUI
 
 #create GUI elements
-from tkinter import *  
+import tkinter as tk
 import random
 
 #create event window
 
-window = Tk()
- 
-window.title("Opening a window")
- 
-lbl = Label(window, text="Hello", font=("Arial Bold", 50))
+root = tk.Tk()
 
- 
-lbl.grid(column=0, row=0)
+#creates a button
 
-
+button = tk.Button(root, text="test button", bg='grey')
+button.pack()
 #start main event loop
-window.mainloop()
+root.mainloop()

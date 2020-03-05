@@ -4,13 +4,36 @@
 import random
 import time
 
-#asks user for text and shift
-plaintxt = input("what is your plaintext?")
-shift = int(input("what is your shift?"))
-result = ("your final text is: ")
+#declaring max shift size
+maxshift = 26
+
+#lets user decide if they wish to encrypt or decrypt
+def getmode():
+    while True:
+        print("Do you wish to encrypt or decrypt?")
+        mode = input().lower()
+        if mode in 'encrypt e decrypt d'.split():
+            return mode
+        else:
+            print('Enter either "encrypt" or "e" or "decrypt" or "d".')
+
+#gets "coded" message from user
+def getmessage():
+    print("enter your message ")
+    return input()
+
+#gets the shift from user
+def getshift():
+    shift = 0
+    while True:
+        print("enter a key number between 1 and 26")
+        key = int(input())
+        if shift >=1 and shift <= maxshift:
+            return shift 
+
 
 #shifts text by (shift) amount of leters
-def caesar(plaintxt, shift, result):
+'''def caesar(plaintxt, shift, result):
     if plaintxt.isalpha(): #checking if plaintext contains letters only
         for character in plaintxt:
             asciiValue = ord(character) + shift
@@ -25,5 +48,6 @@ def caesar(plaintxt, shift, result):
         print("program failed") #if there's not only letters
         time.sleep(1)
         exit()
-
-caesar(plaintxt, shift, result)
+'''
+getmode()
+#caesar(plaintxt, shift, result)
